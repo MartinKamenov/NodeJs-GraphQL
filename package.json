@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-graphql",
+  "version": "1.0.0",
+  "description": "This is a simple NodeJS server that supports GraphQL data management",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinKamenov/NodeJs-GraphQL.git"
+  },
+  "author": "Martin Kamenov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartinKamenov/NodeJs-GraphQL/issues"
+  },
+  "homepage": "https://github.com/MartinKamenov/NodeJs-GraphQL#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8"
+  }
+}
