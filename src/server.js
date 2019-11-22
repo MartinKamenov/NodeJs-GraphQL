@@ -1,14 +1,7 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
-const { buildSchema } = require('graphql');
 const users = require('./users');
-
-const schema = buildSchema(`
-type Query {
-  hello: String
-}
-`);
-
+const schema = require('./schema');
 const root = { hello: () => 'Hello world!' };
 
 const app = express();
@@ -23,4 +16,6 @@ app.get('/users', (req, res) => {
     res.send(users);
 });
 
-app.listen(5000, () => console.log('Listening on 5000'));
+const PORT = process.env.PORT || 5000;
+
+app.listen(5000, () => console.log(`Listening on ${PORT}`));
