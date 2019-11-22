@@ -10,4 +10,13 @@ const users = [{
     nickname: 'Mui'
 }];
 
-module.exports = users;
+const getAllUsers = () => {
+    return new Promise((resolve, reject) => {
+        let wait = setTimeout(() => {
+          clearTimeout(wait);
+          resolve(users);
+        }, 2000);
+    })
+};
+
+module.exports = { getAllUsers, users };

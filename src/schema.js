@@ -1,4 +1,4 @@
-const users = require('./users');
+const { getAllUsers } = require('./users');
 const {
   GraphQLObjectType,
   GraphQLInt,
@@ -21,7 +21,8 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     users: {
       type: new GraphQLList(UserType),
-      resolve(parent, args) {
+      async resolve(parent, args) {
+        const users = await getAllUsers();
         return users;
       }
     }
