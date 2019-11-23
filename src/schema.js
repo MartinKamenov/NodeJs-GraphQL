@@ -12,7 +12,8 @@ const UserType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLString },
     name: { type: GraphQLString },
-    age: { type: GraphQLInt }
+    age: { type: GraphQLInt },
+    imageUrl: { type: GraphQLString }
   })
 });
 
@@ -24,6 +25,22 @@ const RootQuery = new GraphQLObjectType({
       async resolve(parent, args) {
         const users = await getAllUsers();
         return users;
+      }
+    },
+    user: {
+      type: UserType,
+      args: {
+        age: {
+          type: GraphQLInt,
+        },
+        id: {
+          type: GraphQLString
+        },
+        
+      },
+      async resolve(parent, args) {
+        const user = (await getAllUsers()).find((u) => u.id === args.id);
+        return user;
       }
     }
   }
